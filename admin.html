@@ -33,8 +33,6 @@
       -webkit-font-smoothing: antialiased;
     }
     h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); line-height: 1.2; }
-
-    /* LOGIN OVERLAY */
     .login-overlay {
       position: fixed; inset: 0; z-index: 200;
       background: var(--navy-900);
@@ -44,8 +42,7 @@
     .login-overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
     .login-overlay::before {
       content: ''; position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 50% 50% at 50% 50%, rgba(200,162,78,0.08) 0%, transparent 60%);
+      background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(200,162,78,0.08) 0%, transparent 60%);
     }
     .login-card {
       position: relative; z-index: 1;
@@ -63,9 +60,7 @@
       text-align: center; margin-bottom: 8px; color: var(--navy-800);
     }
     .login-logo span { color: var(--gold-400); }
-    .login-subtitle {
-      text-align: center; color: var(--gray-500); font-size: 0.9rem; margin-bottom: 32px;
-    }
+    .login-subtitle { text-align: center; color: var(--gray-500); font-size: 0.9rem; margin-bottom: 32px; }
     .login-field { margin-bottom: 20px; }
     .login-field label {
       display: block; font-size: 0.78rem; font-weight: 600; color: var(--gray-600);
@@ -86,16 +81,9 @@
       box-shadow: var(--shadow-gold); margin-top: 8px;
     }
     .login-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 30px rgba(200,162,78,0.4); }
-    .login-error {
-      color: var(--red); font-size: 0.82rem; text-align: center;
-      margin-top: 16px; min-height: 20px;
-    }
-
-    /* DASHBOARD */
+    .login-error { color: var(--red); font-size: 0.82rem; text-align: center; margin-top: 16px; min-height: 20px; }
     .dashboard { display: none; }
     .dashboard.active { display: block; }
-
-    /* NAV */
     .admin-nav {
       background: var(--white); border-bottom: 1px solid var(--gray-200);
       padding: 0 24px; position: sticky; top: 0; z-index: 50;
@@ -134,38 +122,24 @@
       transition: var(--transition); box-shadow: var(--shadow-gold);
     }
     .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(200,162,78,0.35); }
-
-    /* STATS CARDS */
     .stats-bar {
       max-width: 1200px; margin: 28px auto 0; padding: 0 24px;
       display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
     }
     .stat-card {
       background: var(--white); border: 1px solid var(--gray-200);
-      border-radius: var(--radius); padding: 22px 24px;
-      transition: var(--transition);
+      border-radius: var(--radius); padding: 22px 24px; transition: var(--transition);
     }
     .stat-card:hover { box-shadow: var(--shadow-md); }
     .stat-card-label { font-size: 0.75rem; font-weight: 600; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.06em; }
-    .stat-card-value {
-      font-family: var(--font-heading); font-size: 1.8rem; font-weight: 800;
-      color: var(--navy-800); margin-top: 4px;
-    }
+    .stat-card-value { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 800; color: var(--navy-800); margin-top: 4px; }
     .stat-card-value.gold { color: var(--gold-500); }
-
-    /* TABLE */
-    .table-section {
-      max-width: 1200px; margin: 28px auto 40px; padding: 0 24px;
-    }
-    .table-header {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 16px;
-    }
+    .table-section { max-width: 1200px; margin: 28px auto 40px; padding: 0 24px; }
+    .table-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
     .table-title { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: var(--navy-800); }
     .table-wrap {
       background: var(--white); border: 1px solid var(--gray-200);
-      border-radius: var(--radius-lg); overflow: hidden;
-      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);
     }
     .table-scroll { overflow-x: auto; }
     table { width: 100%; border-collapse: collapse; min-width: 700px; }
@@ -182,21 +156,15 @@
     }
     tr:last-child td { border-bottom: none; }
     tr:hover td { background: rgba(200,162,78,0.02); }
-    .td-id {
-      font-family: var(--font-heading); font-weight: 700; color: var(--navy-800);
-      font-size: 0.95rem;
-    }
+    .td-id { font-family: var(--font-heading); font-weight: 700; color: var(--navy-800); font-size: 0.95rem; }
     .td-name { font-weight: 600; }
     .td-items { max-width: 200px; color: var(--gray-500); font-size: 0.85rem; }
     .td-date { color: var(--gray-500); font-size: 0.85rem; white-space: nowrap; }
-
-    /* Status Select */
     .status-select {
       padding: 7px 12px; border-radius: 8px; border: 1.5px solid var(--gray-200);
       font-family: var(--font-body); font-size: 0.82rem; font-weight: 600;
       color: var(--gray-700); background: var(--white); cursor: pointer;
-      outline: none; transition: var(--transition);
-      appearance: none;
+      outline: none; transition: var(--transition); appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
       background-repeat: no-repeat; background-position: right 10px center;
       padding-right: 30px;
@@ -206,8 +174,6 @@
     .status-select.status-agent { background-color: #eff6ff; border-color: #bfdbfe; color: #1e40af; }
     .status-select.status-shipped { background-color: #eef2ff; border-color: #c7d2fe; color: #3730a3; }
     .status-select.status-delivered { background-color: #ecfdf5; border-color: #a7f3d0; color: #065f46; }
-
-    /* MODAL */
     .modal-overlay {
       position: fixed; inset: 0; z-index: 150;
       background: rgba(5,10,21,0.6); backdrop-filter: blur(4px);
@@ -219,13 +185,10 @@
       background: var(--white); border-radius: var(--radius-lg);
       padding: 36px; width: 100%; max-width: 480px; margin: 20px;
       box-shadow: 0 24px 80px rgba(0,0,0,0.3);
-      transform: translateY(20px) scale(0.97);
-      transition: transform 0.3s ease;
+      transform: translateY(20px) scale(0.97); transition: transform 0.3s ease;
     }
     .modal-overlay.open .modal { transform: translateY(0) scale(1); }
-    .modal-header {
-      display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px;
-    }
+    .modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
     .modal-title { font-size: 1.2rem; font-weight: 700; color: var(--navy-800); }
     .modal-close {
       width: 36px; height: 36px; border-radius: 50%; border: none;
@@ -249,10 +212,10 @@
       border-color: var(--gold-400); box-shadow: 0 0 0 3px rgba(200,162,78,0.1);
     }
     .form-group select {
-      appearance: none;
+      appearance: none; cursor: pointer;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
       background-repeat: no-repeat; background-position: right 14px center;
-      padding-right: 36px; cursor: pointer;
+      padding-right: 36px;
     }
     .modal-submit {
       width: 100%; padding: 14px; border: none; border-radius: var(--radius);
@@ -263,8 +226,6 @@
     }
     .modal-submit:hover { transform: translateY(-1px); }
     .modal-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-
-    /* TOAST */
     .toast-container {
       position: fixed; bottom: 24px; right: 24px; z-index: 999;
       display: flex; flex-direction: column; gap: 8px;
@@ -278,25 +239,16 @@
     .toast.show { transform: translateX(0); }
     .toast-success { background: var(--green); }
     .toast-error { background: var(--red); }
-
-    /* EMPTY STATE */
-    .empty-state {
-      text-align: center; padding: 60px 20px; color: var(--gray-400);
-    }
+    .empty-state { text-align: center; padding: 60px 20px; color: var(--gray-400); }
     .empty-state i { font-size: 2.5rem; margin-bottom: 16px; display: block; }
     .empty-state p { font-size: 0.95rem; }
-
-    /* LOADING TABLE */
-    .table-loading {
-      text-align: center; padding: 60px 20px;
-    }
+    .table-loading { text-align: center; padding: 60px 20px; }
     .spinner {
       width: 32px; height: 32px; border: 3px solid var(--gray-200);
       border-top-color: var(--gold-500); border-radius: 50%;
       animation: spin 0.8s linear infinite; margin: 0 auto 12px;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
-
     @media (max-width: 768px) {
       .stats-bar { grid-template-columns: repeat(2, 1fr); }
       .admin-nav-inner { flex-wrap: wrap; height: auto; padding: 12px 0; gap: 8px; }
@@ -310,8 +262,6 @@
   </style>
 </head>
 <body>
-
-  <!-- LOGIN -->
   <div class="login-overlay" id="loginOverlay">
     <div class="login-card">
       <div class="login-logo">LEW<span>IT</span></div>
@@ -324,8 +274,6 @@
       <div class="login-error" id="loginError"></div>
     </div>
   </div>
-
-  <!-- DASHBOARD -->
   <div class="dashboard" id="dashboard">
     <nav class="admin-nav">
       <div class="admin-nav-inner">
@@ -341,9 +289,7 @@
         </div>
       </div>
     </nav>
-
     <div class="stats-bar" id="statsBar"></div>
-
     <div class="table-section">
       <div class="table-header">
         <div class="table-title">All Orders</div>
@@ -356,8 +302,6 @@
       </div>
     </div>
   </div>
-
-  <!-- CREATE MODAL -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal">
       <div class="modal-header">
@@ -384,31 +328,21 @@
       <button class="modal-submit" id="createBtn" onclick="createOrder()"><i class="fa-solid fa-check" style="margin-right:8px"></i> Create Order</button>
     </div>
   </div>
-
   <div class="toast-container" id="toastContainer"></div>
-
   <script>
-    const API_KEY = '$2a$10$aNNDj3zvmMQCq2VNC4Y9O.MRmJFSSLHC4kkdXH91a54RsU4o4RFu6';
-    const BIN_ID = '6a3ba519f5f4af5e29280402';
-    const API_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}/latest`;
-    const ADMIN_PASSWORD = 'lewit2024';
+    var API_KEY = '$2a$10$yN9PfKcMCHMzvyY.rBkhBOZ8osM98tyhLmZT.IF8y2WQgYtWYA9YC';
+    var BIN_ID = '6a3ba519f5f4af5e29280402';
+    var API_URL = 'https://api.jsonbin.io/v3/b/' + BIN_ID + '/latest';
+    var ADMIN_PASSWORD = 'lewit2024';
+    var STATUS_LABELS = { pending: 'Pending', agent: 'Agent', shipped: 'Shipped', delivered: 'Delivered' };
+    var ordersCache = [];
 
-    const STATUS_LABELS = {
-      pending: 'Pending',
-      agent: 'Agent',
-      shipped: 'Shipped',
-      delivered: 'Delivered'
-    };
-
-    let ordersCache = [];
-
-    // Login
-    document.getElementById('passwordInput').addEventListener('keydown', (e) => {
+    document.getElementById('passwordInput').addEventListener('keydown', function(e) {
       if (e.key === 'Enter') attemptLogin();
     });
 
     function attemptLogin() {
-      const pw = document.getElementById('passwordInput').value;
+      var pw = document.getElementById('passwordInput').value;
       if (pw === ADMIN_PASSWORD) {
         document.getElementById('loginOverlay').classList.add('hidden');
         document.getElementById('dashboard').classList.add('active');
@@ -427,22 +361,18 @@
       document.getElementById('loginError').textContent = '';
     }
 
-    // API
     async function fetchOrders() {
-      const res = await fetch(API_URL, { headers: { 'X-Master-Key': API_KEY } });
+      var res = await fetch(API_URL, { headers: { 'X-Master-Key': API_KEY } });
       if (!res.ok) throw new Error('Fetch failed');
-      const data = await res.json();
+      var data = await res.json();
       return data.record.orders || [];
     }
 
     async function saveOrders(orders) {
-      const res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+      var res = await fetch('https://api.jsonbin.io/v3/b/' + BIN_ID, {
         method: 'PUT',
-        headers: {
-          'X-Master-Key': API_KEY,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ orders })
+        headers: { 'X-Master-Key': API_KEY, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ orders: orders })
       });
       if (!res.ok) throw new Error('Save failed');
       return res.json();
@@ -462,94 +392,60 @@
       });
     }
 
-    // Toast
-    function showToast(msg, type = 'success') {
-      const toast = document.createElement('div');
-      toast.className = `toast toast-${type}`;
-      const icon = type === 'success' ? 'fa-circle-check' : 'fa-circle-exclamation';
-      toast.innerHTML = `<i class="fa-solid ${icon}"></i> ${msg}`;
+    function showToast(msg, type) {
+      type = type || 'success';
+      var toast = document.createElement('div');
+      toast.className = 'toast toast-' + type;
+      var icon = type === 'success' ? 'fa-circle-check' : 'fa-circle-exclamation';
+      toast.innerHTML = '<i class="fa-solid ' + icon + '"></i> ' + msg;
       document.getElementById('toastContainer').appendChild(toast);
-      requestAnimationFrame(() => toast.classList.add('show'));
-      setTimeout(() => {
+      requestAnimationFrame(function() { toast.classList.add('show'); });
+      setTimeout(function() {
         toast.classList.remove('show');
-        setTimeout(() => toast.remove(), 300);
+        setTimeout(function() { toast.remove(); }, 300);
       }, 3500);
     }
 
-    // Render stats
     function renderStats(orders) {
-      const total = orders.length;
-      const pending = orders.filter(o => o.status === 'pending').length;
-      const shipped = orders.filter(o => o.status === 'shipped').length;
-      const delivered = orders.filter(o => o.status === 'delivered').length;
-      document.getElementById('statsBar').innerHTML = `
-        <div class="stat-card">
-          <div class="stat-card-label">Total Orders</div>
-          <div class="stat-card-value">${total}</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-card-label">Pending</div>
-          <div class="stat-card-value gold">${pending}</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-card-label">In Transit</div>
-          <div class="stat-card-value">${shipped}</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-card-label">Delivered</div>
-          <div class="stat-card-value" style="color:var(--green)">${delivered}</div>
-        </div>
-      `;
+      var total = orders.length;
+      var pending = orders.filter(function(o) { return o.status === 'pending'; }).length;
+      var shipped = orders.filter(function(o) { return o.status === 'shipped'; }).length;
+      var delivered = orders.filter(function(o) { return o.status === 'delivered'; }).length;
+      document.getElementById('statsBar').innerHTML =
+        '<div class="stat-card"><div class="stat-card-label">Total Orders</div><div class="stat-card-value">' + total + '</div></div>' +
+        '<div class="stat-card"><div class="stat-card-label">Pending</div><div class="stat-card-value gold">' + pending + '</div></div>' +
+        '<div class="stat-card"><div class="stat-card-label">In Transit</div><div class="stat-card-value">' + shipped + '</div></div>' +
+        '<div class="stat-card"><div class="stat-card-label">Delivered</div><div class="stat-card-value" style="color:var(--green)">' + delivered + '</div></div>';
     }
 
-    // Render table
     function renderTable(orders) {
       if (!orders.length) {
-        document.getElementById('tableContent').innerHTML = `
-          <div class="empty-state">
-            <i class="fa-solid fa-inbox"></i>
-            <p>No orders yet. Create your first order to get started.</p>
-          </div>`;
+        document.getElementById('tableContent').innerHTML =
+          '<div class="empty-state"><i class="fa-solid fa-inbox"></i><p>No orders yet. Create your first order to get started.</p></div>';
         return;
       }
-
-      const sorted = [...orders].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-
-      let rows = sorted.map(o => `
-        <tr>
-          <td class="td-id">#${o.orderId}</td>
-          <td class="td-name">${o.customerName}</td>
-          <td class="td-items">${o.items}</td>
-          <td>
-            <select class="status-select status-${o.status}" onchange="updateStatus('${o.orderId}', this.value)">
-              <option value="pending" ${o.status==='pending'?'selected':''}>Pending (Paid)</option>
-              <option value="agent" ${o.status==='agent'?'selected':''}>With Agent</option>
-              <option value="shipped" ${o.status==='shipped'?'selected':''}>Shipped</option>
-              <option value="delivered" ${o.status==='delivered'?'selected':''}>Delivered</option>
-            </select>
-          </td>
-          <td class="td-date">${formatDate(o.createdAt)}</td>
-          <td class="td-date">${formatDate(o.lastUpdated)}</td>
-        </tr>
-      `).join('');
-
-      document.getElementById('tableContent').innerHTML = `
-        <table>
-          <thead>
-            <tr>
-              <th>Order ID</th>
-              <th>Customer</th>
-              <th>Items</th>
-              <th>Status</th>
-              <th>Created</th>
-              <th>Updated</th>
-            </tr>
-          </thead>
-          <tbody>${rows}</tbody>
-        </table>`;
+      var sorted = orders.slice().sort(function(a, b) { return new Date(b.createdAt) - new Date(a.createdAt); });
+      var rows = '';
+      for (var i = 0; i < sorted.length; i++) {
+        var o = sorted[i];
+        rows += '<tr>' +
+          '<td class="td-id">#' + o.orderId + '</td>' +
+          '<td class="td-name">' + o.customerName + '</td>' +
+          '<td class="td-items">' + o.items + '</td>' +
+          '<td><select class="status-select status-' + o.status + '" onchange="updateStatus(\'' + o.orderId + '\', this.value)">' +
+            '<option value="pending"' + (o.status==='pending'?' selected':'') + '>Pending (Paid)</option>' +
+            '<option value="agent"' + (o.status==='agent'?' selected':'') + '>With Agent</option>' +
+            '<option value="shipped"' + (o.status==='shipped'?' selected':'') + '>Shipped</option>' +
+            '<option value="delivered"' + (o.status==='delivered'?' selected':'') + '>Delivered</option>' +
+          '</select></td>' +
+          '<td class="td-date">' + formatDate(o.createdAt) + '</td>' +
+          '<td class="td-date">' + formatDate(o.lastUpdated) + '</td>' +
+        '</tr>';
+      }
+      document.getElementById('tableContent').innerHTML =
+        '<table><thead><tr><th>Order ID</th><th>Customer</th><th>Items</th><th>Status</th><th>Created</th><th>Updated</th></tr></thead><tbody>' + rows + '</tbody></table>';
     }
 
-    // Load
     async function loadOrders() {
       try {
         ordersCache = await fetchOrders();
@@ -557,28 +453,25 @@
         renderTable(ordersCache);
       } catch (err) {
         showToast('Failed to load orders. Check your connection.', 'error');
-        document.getElementById('tableContent').innerHTML = `
-          <div class="empty-state">
-            <i class="fa-solid fa-triangle-exclamation" style="color:var(--red)"></i>
-            <p>Failed to load orders. Please try refreshing.</p>
-          </div>`;
+        document.getElementById('tableContent').innerHTML =
+          '<div class="empty-state"><i class="fa-solid fa-triangle-exclamation" style="color:var(--red)"></i><p>Failed to load orders. Please try refreshing.</p></div>';
       }
     }
 
-    // Update status
     async function updateStatus(orderId, newStatus) {
-      const idx = ordersCache.findIndex(o => o.orderId === orderId);
+      var idx = -1;
+      for (var i = 0; i < ordersCache.length; i++) {
+        if (ordersCache[i].orderId === orderId) { idx = i; break; }
+      }
       if (idx === -1) return;
-
-      const oldStatus = ordersCache[idx].status;
+      var oldStatus = ordersCache[idx].status;
       ordersCache[idx].status = newStatus;
       ordersCache[idx].lastUpdated = todayStr();
-
       try {
         await saveOrders(ordersCache);
         renderStats(ordersCache);
         renderTable(ordersCache);
-        showToast(`Order #${orderId} updated to ${STATUS_LABELS[newStatus]}`);
+        showToast('Order #' + orderId + ' updated to ' + STATUS_LABELS[newStatus]);
       } catch (err) {
         ordersCache[idx].status = oldStatus;
         ordersCache[idx].lastUpdated = todayStr();
@@ -587,55 +480,40 @@
       }
     }
 
-    // Modal
     function openModal() {
       document.getElementById('modalOverlay').classList.add('open');
       document.getElementById('newName').value = '';
       document.getElementById('newItems').value = '';
       document.getElementById('newStatus').value = 'pending';
-      setTimeout(() => document.getElementById('newName').focus(), 100);
+      setTimeout(function() { document.getElementById('newName').focus(); }, 100);
     }
     function closeModal() {
       document.getElementById('modalOverlay').classList.remove('open');
     }
-    document.getElementById('modalOverlay').addEventListener('click', (e) => {
+    document.getElementById('modalOverlay').addEventListener('click', function(e) {
       if (e.target === e.currentTarget) closeModal();
     });
 
-    // Create order
     async function createOrder() {
-      const name = document.getElementById('newName').value.trim();
-      const items = document.getElementById('newItems').value.trim();
-      const status = document.getElementById('newStatus').value;
-
+      var name = document.getElementById('newName').value.trim();
+      var items = document.getElementById('newItems').value.trim();
+      var status = document.getElementById('newStatus').value;
       if (!name) { document.getElementById('newName').focus(); return; }
       if (!items) { document.getElementById('newItems').focus(); return; }
-
-      const btn = document.getElementById('createBtn');
+      var btn = document.getElementById('createBtn');
       btn.disabled = true;
       btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin" style="margin-right:8px"></i> Creating...';
-
-      let id = generateId();
-      while (ordersCache.some(o => o.orderId === id)) id = generateId();
-
-      const today = todayStr();
-      const newOrder = {
-        orderId: id,
-        customerName: name,
-        items: items,
-        status: status,
-        createdAt: today,
-        lastUpdated: today
-      };
-
+      var id = generateId();
+      while (ordersCache.some(function(o) { return o.orderId === id; })) id = generateId();
+      var today = todayStr();
+      var newOrder = { orderId: id, customerName: name, items: items, status: status, createdAt: today, lastUpdated: today };
       ordersCache.push(newOrder);
-
       try {
         await saveOrders(ordersCache);
         renderStats(ordersCache);
         renderTable(ordersCache);
         closeModal();
-        showToast(`Order #${id} created successfully!`);
+        showToast('Order #' + id + ' created successfully!');
       } catch (err) {
         ordersCache.pop();
         showToast('Failed to create order. Try again.', 'error');
