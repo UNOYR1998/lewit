@@ -34,8 +34,6 @@
       -webkit-font-smoothing: antialiased;
     }
     h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); line-height: 1.2; }
-
-    /* NAV */
     .nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       background: rgba(249,248,245,0.92); backdrop-filter: blur(20px);
@@ -65,8 +63,6 @@
       text-decoration: none; cursor: pointer; transition: var(--transition);
     }
     .btn-admin:hover { border-color: var(--gold-400); color: var(--gold-600); }
-
-    /* HERO */
     .track-hero {
       background: var(--navy-900); padding: 140px 24px 80px;
       position: relative; overflow: hidden; text-align: center;
@@ -83,7 +79,6 @@
       margin-bottom: 12px; letter-spacing: -0.02em;
     }
     .track-hero p { color: rgba(255,255,255,0.5); font-size: 1rem; margin-bottom: 40px; }
-
     .search-box {
       display: flex; gap: 0; max-width: 480px; margin: 0 auto;
       background: var(--white); border-radius: 60px; overflow: hidden;
@@ -103,12 +98,8 @@
       white-space: nowrap;
     }
     .search-box button:hover { background: linear-gradient(135deg, var(--gold-400), var(--gold-200)); }
-
-    /* RESULTS */
     .results-section { padding: 60px 24px 100px; min-height: 300px; }
     .results-container { max-width: 700px; margin: 0 auto; }
-
-    /* Not Found */
     .not-found {
       text-align: center; padding: 60px 20px;
       animation: fadeIn 0.4s ease;
@@ -120,8 +111,6 @@
     }
     .not-found h3 { font-size: 1.3rem; color: var(--navy-800); margin-bottom: 8px; }
     .not-found p { color: var(--gray-500); font-size: 0.95rem; }
-
-    /* Order Card */
     .order-card {
       background: var(--white); border-radius: var(--radius-lg);
       border: 1px solid var(--gray-200); overflow: hidden;
@@ -146,8 +135,6 @@
     .order-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
     .order-customer { font-weight: 600; color: var(--gray-700); font-size: 0.95rem; }
     .order-items { font-size: 0.85rem; color: var(--gray-500); max-width: 260px; text-align: right; }
-
-    /* STEPPER */
     .stepper-section { padding: 40px 32px; }
     .stepper {
       display: flex; align-items: flex-start; justify-content: space-between;
@@ -202,8 +189,6 @@
       font-size: 0.7rem; color: var(--gray-400); margin-top: 2px;
     }
     .step.completed .step-sublabel { color: var(--gold-600); }
-
-    /* Order Details */
     .order-details {
       padding: 24px 32px; background: var(--cream);
       border-top: 1px solid var(--gray-100);
@@ -215,8 +200,6 @@
       margin-bottom: 4px;
     }
     .detail-item span { font-size: 0.92rem; font-weight: 600; color: var(--gray-800); }
-
-    /* Status Badge */
     .status-badge {
       display: inline-flex; align-items: center; gap: 6px;
       padding: 6px 14px; border-radius: 50px; font-size: 0.78rem; font-weight: 700;
@@ -226,8 +209,6 @@
     .status-agent { background: #dbeafe; color: #1e40af; }
     .status-shipped { background: #e0e7ff; color: #3730a3; }
     .status-delivered { background: #d1fae5; color: #065f46; }
-
-    /* Loading */
     .loading {
       text-align: center; padding: 60px 20px;
     }
@@ -238,8 +219,6 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
     .loading p { color: var(--gray-500); font-size: 0.9rem; }
-
-    /* Toast */
     .toast-container {
       position: fixed; bottom: 24px; right: 24px; z-index: 999;
       display: flex; flex-direction: column; gap: 8px;
@@ -251,7 +230,6 @@
     }
     .toast.show { transform: translateX(0); }
     .toast-error { background: #ef4444; }
-
     @media (max-width: 600px) {
       .order-header { padding: 20px; flex-direction: column; }
       .order-meta { align-items: flex-start; }
@@ -267,7 +245,6 @@
   </style>
 </head>
 <body>
-
   <nav class="nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">LEW<span>IT</span></a>
@@ -277,7 +254,6 @@
       </div>
     </div>
   </nav>
-
   <section class="track-hero">
     <div class="track-hero-content">
       <h1>Track Your Order</h1>
@@ -288,18 +264,14 @@
       </div>
     </div>
   </section>
-
   <section class="results-section">
     <div class="results-container" id="resultsContainer"></div>
   </section>
-
   <div class="toast-container" id="toastContainer"></div>
-
   <script>
-    const API_KEY = '$2a$10$aNNDj3zvmMQCq2VNC4Y9O.MRmJFSSLHC4kkdXH91a54RsU4o4RFu6';
+    const API_KEY = '$2a$10$yN9PfKcMCHMzvyY.rBkhBOZ8osM98tyhLmZT.IF8y2WQgYtWYA9YC';
     const BIN_ID = '6a3ba519f5f4af5e29280402';
-    const API_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}/latest`;
-
+    const API_URL = 'https://api.jsonbin.io/v3/b/' + BIN_ID + '/latest';
     const STATUSES = ['pending', 'agent', 'shipped', 'delivered'];
     const STATUS_LABELS = {
       pending: 'Pending (Paid)',
@@ -319,127 +291,97 @@
       shipped: 'In transit',
       delivered: 'Order complete'
     };
-
-    // Enter key
-    document.getElementById('orderInput').addEventListener('keydown', (e) => {
+    document.getElementById('orderInput').addEventListener('keydown', function(e) {
       if (e.key === 'Enter') trackOrder();
     });
-
-    // Only allow numbers
-    document.getElementById('orderInput').addEventListener('input', (e) => {
+    document.getElementById('orderInput').addEventListener('input', function(e) {
       e.target.value = e.target.value.replace(/\D/g, '');
     });
-
     async function fetchOrders() {
       const res = await fetch(API_URL, { headers: { 'X-Master-Key': API_KEY } });
       if (!res.ok) throw new Error('Failed to fetch orders');
       const data = await res.json();
       return data.record.orders || [];
     }
-
-    function showToast(msg, type = 'error') {
+    function showToast(msg, type) {
+      type = type || 'error';
       const toast = document.createElement('div');
-      toast.className = `toast toast-${type}`;
+      toast.className = 'toast toast-' + type;
       toast.textContent = msg;
       document.getElementById('toastContainer').appendChild(toast);
-      requestAnimationFrame(() => toast.classList.add('show'));
-      setTimeout(() => {
+      requestAnimationFrame(function() { toast.classList.add('show'); });
+      setTimeout(function() {
         toast.classList.remove('show');
-        setTimeout(() => toast.remove(), 300);
+        setTimeout(function() { toast.remove(); }, 300);
       }, 3500);
     }
-
     function formatDate(dateStr) {
       return new Date(dateStr).toLocaleDateString('en-US', {
         year: 'numeric', month: 'short', day: 'numeric'
       });
     }
-
     function renderNotFound(code) {
-      return `
-        <div class="not-found">
-          <div class="not-found-icon"><i class="fa-solid fa-box-open"></i></div>
-          <h3>No order found</h3>
-          <p>We couldn't find an order with code <strong>${code}</strong>. Please double-check and try again.</p>
-        </div>
-      `;
+      return '<div class="not-found">' +
+        '<div class="not-found-icon"><i class="fa-solid fa-box-open"></i></div>' +
+        '<h3>No order found</h3>' +
+        '<p>We couldn\'t find an order with code <strong>' + code + '</strong>. Please double-check and try again.</p>' +
+        '</div>';
     }
-
     function renderOrder(order) {
-      const currentIdx = STATUSES.indexOf(order.status);
-      const fillPercent = currentIdx === 0 ? 0 : (currentIdx / (STATUSES.length - 1)) * 100;
-
-      let stepsHTML = STATUSES.map((s, i) => {
-        let cls = '';
+      var currentIdx = STATUSES.indexOf(order.status);
+      var fillPercent = currentIdx === 0 ? 0 : (currentIdx / (STATUSES.length - 1)) * 100;
+      var stepsHTML = '';
+      for (var i = 0; i < STATUSES.length; i++) {
+        var s = STATUSES[i];
+        var cls = '';
         if (i < currentIdx) cls = 'completed';
         else if (i === currentIdx) cls = 'active';
-        return `
-          <div class="step ${cls}">
-            <div class="step-circle"><i class="fa-solid ${STATUS_ICONS[s]}"></i></div>
-            <div class="step-label">${STATUS_LABELS[s]}</div>
-            <div class="step-sublabel">${cls === 'completed' ? 'Completed' : cls === 'active' ? STATUS_SUBLABELS[s] : 'Upcoming'}</div>
-          </div>
-        `;
-      }).join('');
-
-      return `
-        <div class="order-card">
-          <div class="order-header">
-            <div>
-              <div class="order-id-label">Order Number</div>
-              <div class="order-id">#${order.orderId}</div>
-            </div>
-            <div class="order-meta">
-              <span class="status-badge status-${order.status}">${STATUS_LABELS[order.status]}</span>
-              <div class="order-customer">${order.customerName}</div>
-              <div class="order-items">${order.items}</div>
-            </div>
-          </div>
-          <div class="stepper-section">
-            <div class="stepper">
-              <div class="stepper-track"><div class="stepper-track-fill" style="width:${fillPercent}%"></div></div>
-              ${stepsHTML}
-            </div>
-          </div>
-          <div class="order-details">
-            <div class="detail-item">
-              <label>Items</label>
-              <span>${order.items}</span>
-            </div>
-            <div class="detail-item">
-              <label>Created</label>
-              <span>${formatDate(order.createdAt)}</span>
-            </div>
-            <div class="detail-item">
-              <label>Last Updated</label>
-              <span>${formatDate(order.lastUpdated)}</span>
-            </div>
-          </div>
-        </div>
-      `;
+        var sublabel = cls === 'completed' ? 'Completed' : cls === 'active' ? STATUS_SUBLABELS[s] : 'Upcoming';
+        stepsHTML += '<div class="step ' + cls + '">' +
+          '<div class="step-circle"><i class="fa-solid ' + STATUS_ICONS[s] + '"></i></div>' +
+          '<div class="step-label">' + STATUS_LABELS[s] + '</div>' +
+          '<div class="step-sublabel">' + sublabel + '</div>' +
+          '</div>';
+      }
+      return '<div class="order-card">' +
+        '<div class="order-header">' +
+          '<div><div class="order-id-label">Order Number</div><div class="order-id">#' + order.orderId + '</div></div>' +
+          '<div class="order-meta">' +
+            '<span class="status-badge status-' + order.status + '">' + STATUS_LABELS[order.status] + '</span>' +
+            '<div class="order-customer">' + order.customerName + '</div>' +
+            '<div class="order-items">' + order.items + '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="stepper-section">' +
+          '<div class="stepper">' +
+            '<div class="stepper-track"><div class="stepper-track-fill" style="width:' + fillPercent + '%"></div></div>' +
+            stepsHTML +
+          '</div>' +
+        '</div>' +
+        '<div class="order-details">' +
+          '<div class="detail-item"><label>Items</label><span>' + order.items + '</span></div>' +
+          '<div class="detail-item"><label>Created</label><span>' + formatDate(order.createdAt) + '</span></div>' +
+          '<div class="detail-item"><label>Last Updated</label><span>' + formatDate(order.lastUpdated) + '</span></div>' +
+        '</div>' +
+      '</div>';
     }
-
     async function trackOrder() {
-      const code = document.getElementById('orderInput').value.trim();
-      const container = document.getElementById('resultsContainer');
-
+      var code = document.getElementById('orderInput').value.trim();
+      var container = document.getElementById('resultsContainer');
       if (code.length !== 7) {
         showToast('Please enter a valid 7-digit order code.');
         return;
       }
-
-      container.innerHTML = `<div class="loading"><div class="spinner"></div><p>Looking up your order...</p></div>`;
-
+      container.innerHTML = '<div class="loading"><div class="spinner"></div><p>Looking up your order...</p></div>';
       try {
-        const orders = await fetchOrders();
-        const order = orders.find(o => o.orderId === code);
+        var orders = await fetchOrders();
+        var order = orders.find(function(o) { return o.orderId === code; });
         container.innerHTML = order ? renderOrder(order) : renderNotFound(code);
       } catch (err) {
-        container.innerHTML = `<div class="not-found">
-          <div class="not-found-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
-          <h3>Something went wrong</h3>
-          <p>Unable to fetch order data. Please try again in a moment.</p>
-        </div>`;
+        container.innerHTML = '<div class="not-found">' +
+          '<div class="not-found-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>' +
+          '<h3>Something went wrong</h3>' +
+          '<p>Unable to fetch order data. Please try again in a moment.</p></div>';
         showToast('Network error. Please try again.');
       }
     }
